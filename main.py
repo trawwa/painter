@@ -73,6 +73,9 @@ class Paint(Frame):
         six_btn = Button(self, text='Fifty', width=10, command=lambda: self.set_brush_size(50))
         six_btn.grid(row=1, column=6)
 
+        clear_btn = Button(self, text="Clear all", width=10, command=lambda: self.canv.delete("all"))
+        clear_btn.grid(row=0, column=6, sticky=W)
+
 
 def main():
     root = Tk()
