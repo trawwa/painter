@@ -20,6 +20,9 @@ class Paint(Frame):
     def set_color(self, new_color):
         self.color = new_color
 
+    def set_brush_size(self, new_size):
+        self.brush_size = new_size
+
     def setUI(self):
         self.parent.title("Painter")
         self.pack(fill=BOTH, expand=1)
@@ -52,22 +55,22 @@ class Paint(Frame):
 
         size_lab = Label(self, text='Brush size: ')
         size_lab.grid(row=1, column=0, padx=5)
-        one_btn = Button(self, text='Two', width=10)
+        one_btn = Button(self, text='Two', width=10, command=lambda: self.set_brush_size(2))
         one_btn.grid(row=1, column=1)
 
-        two_btn = Button(self, text='Five', width=10)
+        two_btn = Button(self, text='Five', width=10, command=lambda: self.set_brush_size(5))
         two_btn.grid(row=1, column=2)
 
-        three_btn = Button(self, text='Seven', width=10)
+        three_btn = Button(self, text='Seven', width=10, command=lambda: self.set_brush_size(7))
         three_btn.grid(row=1, column=3)
 
-        four_btn = Button(self, text='Ten', width=10)
+        four_btn = Button(self, text='Ten', width=10, command=lambda: self.set_brush_size(10))
         four_btn.grid(row=1, column=4)
 
-        five_btn = Button(self, text='Twenty', width=10)
+        five_btn = Button(self, text='Twenty', width=10, command=lambda: self.set_brush_size(20))
         five_btn.grid(row=1, column=5)
 
-        six_btn = Button(self, text='Fifty', width=10)
+        six_btn = Button(self, text='Fifty', width=10, command=lambda: self.set_brush_size(50))
         six_btn.grid(row=1, column=6)
 
 
