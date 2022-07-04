@@ -17,6 +17,9 @@ class Paint(Frame):
                               event.y + self.brush_size,
                               fill=self.color, outline=self.color)
 
+    def set_color(self, new_color):
+        self.color = new_color
+
     def setUI(self):
         self.parent.title("Painter")
         self.pack(fill=BOTH, expand=1)
@@ -32,19 +35,19 @@ class Paint(Frame):
         color_lab = Label(self, text="Color: ")
         color_lab.grid(row=0, column=0, padx=6)
 
-        red_btn = Button(self, text='Red', width=10)
+        red_btn = Button(self, text='Red', width=10, command=lambda: self.set_color("red"))
         red_btn.grid(row=0, column=1)
 
-        green_btn = Button(self, text='Green', width=10)
+        green_btn = Button(self, text='Green', width=10, command=lambda: self.set_color("green"))
         green_btn.grid(row=0, column=2)
 
-        blue_btn = Button(self, text='Blue', width=10)
+        blue_btn = Button(self, text='Blue', width=10, command=lambda: self.set_color("blue"))
         blue_btn.grid(row=0, column=3)
 
-        black_btn = Button(self, text='Black', width=10)
+        black_btn = Button(self, text='Black', width=10, command=lambda: self.set_color("black"))
         black_btn.grid(row=0, column=4)
 
-        white_btn = Button(self, text='White', width=10)
+        white_btn = Button(self, text='White', width=10, command=lambda: self.set_color("white"))
         white_btn.grid(row=0, column=5)
 
         size_lab = Label(self, text='Brush size: ')
