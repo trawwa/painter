@@ -1,11 +1,21 @@
 from tkinter import *
 
+
 class Paint(Frame):
 
     def __init__(self, parent):
         Frame.__init__(self, parent)
         self.parent = parent
+        self.brush_size = 10
+        self.color = "black"
         self.setUI()
+
+    def draw(self, event):
+        self.canv.create_oval(event.x - self.brush_size,
+                              event.y - self.brush_size,
+                              event.x + self.brush_size,
+                              event.y + self.brush_size,
+                              fill=self.color, outline=self.color)
 
     def setUI(self):
         self.parent.title("Painter")
@@ -17,6 +27,7 @@ class Paint(Frame):
         self.canv = Canvas(self, bg="white")
         self.canv.grid(row=2, column=0, columnspan=7,
                        padx=5, pady=5, sticky=E + W + S + N)
+        self.canv.bind("<B1-Motion>", self.draw)
 
         color_lab = Label(self, text="Color: ")
         color_lab.grid(row=0, column=0, padx=6)
@@ -55,8 +66,6 @@ class Paint(Frame):
 
         six_btn = Button(self, text='Fifty', width=10)
         six_btn.grid(row=1, column=6)
-
-
 
 
 def main():
